@@ -25,8 +25,22 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'user_id',
-            'food_id',
+            
+             [
+                'attribute' => 'user_id',
+                'filter' => \common\models\User::listUser(),
+                'value' => function ($model) {
+                    return $model->user->username;
+                },
+            ],
+                         [
+                'attribute' => 'food_id',
+                'filter' => \common\models\Food::listFood(),
+                'value' => function ($model) {
+                    return $model->food->name;
+                },
+            ],
+            
             'content:ntext',
             //'created_at',
             // 'updated_at',

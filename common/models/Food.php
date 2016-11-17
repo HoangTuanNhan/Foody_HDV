@@ -35,7 +35,7 @@ class Food extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'price', 'detail', 'image', 'food_category_id'], 'required'],
+            [['name', 'price', 'detail', 'image','food_category_id'], 'required'],
             [['price', 'food_category_id',  'created_at', 'updated_at', 'deleted_at'], 'integer'],
             [['detail'], 'string'],
             [['name'], 'string', 'max' => 255],

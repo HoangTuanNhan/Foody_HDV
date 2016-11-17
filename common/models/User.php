@@ -155,16 +155,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     protected static function getHeaderToken() {
         return ['exp' => time() + Yii::$app->params['jwtExpire']];
     }
-    public static function findIdentityByAccessToken($token, $type = null) {
-        if (!static::isPasswordResetTokenValid($token)) {
-            return null;
-        }
-
-        return static::findOne([
-                    'password_reset_token' => $token,
-                    'status' => self::STATUS_ACTIVE,
-        ]);
-    }
      public function validatePassword($password)
     {
         return Yii::$app->security->validatePassword($password, $this->password);
@@ -179,5 +169,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
     }
+    
+    
 
 }
