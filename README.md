@@ -1,13 +1,20 @@
 Yii 2 Advanced Project Template
 ===========================
 B1 : git clone https://github.com/HoangTuanNhan/Foody_HDV
+
 B2 : php init 
+
 B3 : composer install
+
 B4 : composer update
+
 B5 : edit database in common/config/main-local
+
 B6 : cd nameProject : php yii migrate
+
 B7 : if not run you can set read/write url
-DIRECTORY STRUCTURE
+
+
 -------------------
 
 ```
